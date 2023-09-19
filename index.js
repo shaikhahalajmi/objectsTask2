@@ -145,7 +145,7 @@ console.log(countCourses(students[1]));
 function listAllCourses(students) {
   // Your code here
   const newArr = [];
-  students.forEach(obj => {
+  students.forEach((obj) => {
     obj.courses.forEach(course => {
     if( !newArr.includes(course ))
         newArr.push(course);
@@ -183,7 +183,20 @@ function removeCourseFromStudent(student, course) {
 return student;
 }
 console.log(removeCourseFromStudent(students[6],"Science"));
+// another way
 
+function removeCourseFromStudent1(student, course) {
+  // Your code here
+  student.courses= student.courses.filter( (x) =>  x != course);
+
+  return student;
+
+ 
+
+
+}
+
+console.log(removeCourseFromStudent1(students[6],"Science"));
 
 /**********
   Question 7:
@@ -208,6 +221,17 @@ function findStudentById(studentId, students) {
 }
 
 console.log(findStudentById(10,students));
+
+
+//another way 
+
+function findStudentById1(studentId, students) {
+  // Your code here
+  return students.find((x) => x.id == studentId);
+  //find returns one element and the filter always returns the whole array
+}
+
+console.log(findStudentById1(10,students));
 
 
 /**********
@@ -236,7 +260,7 @@ console.log(findStudentById(10,students));
 
 function getStudentsByCourse(course, students) {
   // Your code here
-  return students.filter(student => student.courses.includes(course));
+  return students.filter((x) => x.courses.includes(course));
 
 }
 
